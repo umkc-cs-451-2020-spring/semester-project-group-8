@@ -6,3 +6,8 @@
 - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/ "C# documentation")
 - [Bootstrap v4.4.1](https://getbootstrap.com/)
 - [SQL Server 2019 Developer Edition](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+
+## Getting Started
+- Installing and starting a SQL Server Service [Tutorial](https://www.sqlservertutorial.net/getting-started/)
+- Understanding different SQL Server services and functions [Tutorial](https://www.virtual-dba.com/sql-server-services/)
+- Brief one hour SQL tutorial that teaches basic Create, Select, and Query functions [YouTube](https://www.youtube.com/watch?v=9Pzj7Aj25lw)
