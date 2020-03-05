@@ -1,5 +1,11 @@
 # Commerce Bank Semester Project -- Group 8
 
+## Contributing
+- Branch off of master
+- Write your change
+- Push your local branch and open a pull request
+- Merge pull request once you have team approval
+
 ## Built with
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 - [ASP.NET Core 3.1](https://dotnet.microsoft.com/apps/aspnet)
