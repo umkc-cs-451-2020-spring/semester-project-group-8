@@ -2,10 +2,121 @@
     ViewData["Title"] = "Home Page";
 }
 
+<!-- Modal -->
+<div class="modal fade" id="loginpop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content form-elegant">
+            <!--Header-->
+            <div class="modal-header text-center">
+                <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>LOGIN</strong></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body mx-4">
+                <!--Body-->
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                    </div>
+                </form>
+                <p class="font-small blue-text d-flex justify-content-end">
+                    Forgot <a href="#" class="blue-text ml-1">
+                        Password?
+                    </a>
+                </p>
+            </div>
+
+            <div class="text-center mb-3">
+                <button style="background: #0B5637; color: #fff;" type="submit" class="btn btn-success" onclick="window.location.href='login.html'">Login</button>
+                <button type="submit" class="btn btn-primary" onclick="window.location.href='guest.html'">Guest Login</button>
+            </div>
+            <div class="modal-footer mx-5 pt-3 mb-1">
+                <p class="font-small grey-text d-flex justify-content-end">
+                    Not a member? <a href="#" class="blue-text ml-1">
+                        Register Here
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <!--/.Content-->
+</div>
+
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="registerpop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content form-elegant">
+            <!--Header-->
+            <div class="modal-header text-center">
+                <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3"><strong>Register</strong></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body mx-4">
+                <!--Body-->
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="text" class="form-control" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Email ID</label>
+                        <input type="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Re-Password</label>
+                        <input type="password" class="form-control">
+                    </div>
+                </form>
+            </div>
+
+            <div class="text-center mb-3">
+                <button style="background: #0B5637; color: #fff;" type="submit" class="btn btn-success">Register</button>
+            </div>
+
+            <div class="modal-footer mx-5 pt-3 mb-1">
+                <p class="font-small grey-text d-flex justify-content-end">
+                    Already Registered? <a href="#" class="blue-text ml-1">
+                        Login Here
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <!--/.Content-->
+</div>
+
+<!-- Modal -->
+
+
 <div class="row justify-content-center">
-    <img src="..umkc_logo.jpg" alt="UMKC">
-    <img src="..commerce_logo.png" alt="Commerce bank" height="500" width="500">
-   
+    <img src="https://sce.umkc.edu/wp-content/uploads/2019/08/sce-stacked-two-color-digital-only-495x400.jpg" alt="UMKC" height="490">
+    <img src="https://www.commercebank.com/-/media/commerce-bank-logo.png" alt="Commerce bank" height="500" width="500">
+
 </div>
 <div style="margin-top: 0px">
     <h1 style="text-align:center">
@@ -16,6 +127,6 @@
     </h3>
 </div>
 <div class="row justify-content-center" style="margin-top: 30px">
-    <button type="button" class="btn btn-outline-primary btn-lg" style="margin-right: 30px">Login</button>
-    <button type="button" class="btn btn-outline-success btn-lg">Register</button>
+    <button type="button" class="btn btn-outline-primary btn-lg" style="margin-right: 30px" data-toggle="modal" data-target="#loginpop">Login</button>
+    <button style="background: #0B5637; color: #fff;" type="button" class="btn btn-outline-success btn-lg" data-toggle="modal" data-target="#registerpop">Register</button>
 </div>
