@@ -37,8 +37,8 @@ namespace demo.Controllers
             transaction1.account_number = 1;
             transaction1.amount = 2000;
             transaction1.processing_date = "12/12/2020";
-            transaction1.deposit_withdrawal = "Deposit";
-            transaction1.description = "Initial deposit";
+            transaction1.deposit_withdrawal = "DR";
+            transaction1.description = "DUMMY - Initial deposit";
             transaction1.balance = 2000;
 
             var transaction2 = new Transactions();
@@ -46,8 +46,8 @@ namespace demo.Controllers
             transaction2.account_number = 1;
             transaction2.amount = -500;
             transaction2.processing_date = "12/14/2020";
-            transaction2.deposit_withdrawal = "Withdrawal";
-            transaction2.description = "Bill Payment";
+            transaction2.deposit_withdrawal = "CR";
+            transaction2.description = "DUMMY - Bill Payment";
             transaction2.balance = 1500;
 
             model.Add(transaction1);
