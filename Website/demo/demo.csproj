@@ -12,7 +12,4 @@
   <ItemGroup>
     <None Remove="Views\Home\Tanvi\css\main.css" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Views\Home\Tanvi\main.css" />
-  </ItemGroup>
 </Project>
