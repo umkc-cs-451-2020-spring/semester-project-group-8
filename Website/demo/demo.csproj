@@ -6,4 +6,13 @@
 
 
 
+  <ItemGroup>
+    <Content Remove="Views\Home\Home_page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Home\Tanvi\css\main.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\Home\Tanvi\main.css" />
+  </ItemGroup>
 </Project>
