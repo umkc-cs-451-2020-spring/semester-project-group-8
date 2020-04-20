@@ -1,0 +1,173 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+    <title>Dashboard</title>
+
+    <script>
+$(window).on("load resize ", function () {
+            var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+            $('.tbl-header').css({ 'padding-right': scrollWidth });
+        }).resize();</script>
+</head>
+<body style="background-color: #0b5637;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><b>Commerce Bank Portal</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Transaction Page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Transactions Flags</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Account Page</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a class="nav-link" style="color: #fff;">Hello, User!</a>
+                <a class="btn btn-success my-2 my-sm-0" href="index">Logout</a>
+            </form>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 39px">
+
+        <center><h1 style="color: #fff; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">WELCOME TO COMMERCE BANK WEB PORTAL</h1></center><br><br>
+
+        <h3 style="color: #fff; margin-left:25px;">Account Balance: $991.00</h3>
+        <h3 style="color: #fff; margin-left:25px;">Recent Transactions</h3>
+        <div class="limiter">
+            <div class="container-table100">
+                <div class="wrap-table100">
+                    <div class="table100">
+                        <table>
+                            <thead>
+                                <tr class="table100-head">
+                                    <th class="column1">Account #</th>
+                                    <th class="column2">Processing Date</th>
+                                    <th class="column3">Balance</th>
+                                    <th class="column4">Credit/Debit</th>
+                                    <th class="column6">Amount</th>
+                                    <th class="column6">Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="column1">1234373</td>
+                                    <td class="column2">May-12-2020</td>
+                                    <td class="column3">$99</td>
+                                    <td class="column4">Credit</td>
+                                    <td class="column6">$999.00</td>
+                                    <td class="column6">Comment</td>
+                                </tr>
+                                <tr>
+                                    <td class="column1">1234373</td>
+                                    <td class="column2">May-12-2020</td>
+                                    <td class="column3">$99</td>
+                                    <td class="column4">Credit</td>
+                                    <td class="column6">$999.00</td>
+                                    <td class="column6">Comment</td>
+                                </tr>
+                                <tr>
+                                    <td class="column1">1234373</td>
+                                    <td class="column2">May-12-2020</td>
+                                    <td class="column3">$99</td>
+                                    <td class="column4">Credit</td>
+                                    <td class="column6">$999.00</td>
+                                    <td class="column6">Comment</td>
+                                </tr>
+                                <tr>
+                                    <td class="column1">1234373</td>
+                                    <td class="column2">May-12-2020</td>
+                                    <td class="column3">$99</td>
+                                    <td class="column4">Credit</td>
+                                    <td class="column6">$999.00</td>
+                                    <td class="column6">Comment</td>
+                                </tr>
+                                <tr>
+                                    <td class="column1">1234373</td>
+                                    <td class="column2">May-12-2020</td>
+                                    <td class="column3">$99</td>
+                                    <td class="column4">Credit</td>
+                                    <td class="column6">$999.00</td>
+                                    <td class="column6">Comment</td>
+                                </tr>
+                                <tr>
+                                    <td class="column1">1234373</td>
+                                    <td class="column2">May-12-2020</td>
+                                    <td class="column3">$99</td>
+                                    <td class="column4">Credit</td>
+                                    <td class="column6">$999.00</td>
+                                    <td class="column6">Comment</td>
+                                </tr>
+                                <tr>
+                                    <td class="column1">1234373</td>
+                                    <td class="column2">May-12-2020</td>
+                                    <td class="column3">$99</td>
+                                    <td class="column4">Credit</td>
+                                    <td class="column6">$999.00</td>
+                                    <td class="column6">Comment</td>
+                                </tr>
+                                <tr>
+                                    <td class="column1">1234373</td>
+                                    <td class="column2">May-12-2020</td>
+                                    <td class="column3">$99</td>
+                                    <td class="column4">Credit</td>
+                                    <td class="column6">$999.00</td>
+                                    <td class="column6">Comment</td>
+                                </tr>
+                                <tr>
+                                    <td class="column1">1234373</td>
+                                    <td class="column2">May-12-2020</td>
+                                    <td class="column3">$99</td>
+                                    <td class="column4">Credit</td>
+                                    <td class="column6">$999.00</td>
+                                    <td class="column6">Comment</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="column1">1234373</td>
+                                    <td class="column2">May-12-2020</td>
+                                    <td class="column3">Test User</td>
+                                    <td class="column4">Checking</td>
+                                    <td class="column6">$999.00</td>
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+
