@@ -27,6 +27,20 @@ namespace demo.Controllers
         {
             return View();
         }
+        public IActionResult dashboard()
+        {
+            return View();
+        }
+
+        public IActionResult Home_page()
+        {
+            return View();
+        }
+
+        public IActionResult Alerts()
+        {
+            return View();
+        }
 
         public IActionResult Transactions()
         {
