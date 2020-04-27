@@ -16,4 +16,17 @@
   <ItemGroup>
     <None Remove="Views\Home\Tanvi\css\main.css" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="databaseDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>databaseDataSet.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="databaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>databaseDataSet.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
 </Project>
