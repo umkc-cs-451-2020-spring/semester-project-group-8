@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using demo.Models;
+using System.Data.SqlClient;
 
 namespace demo.Controllers
 {
@@ -44,28 +45,33 @@ namespace demo.Controllers
 
         public IActionResult Transactions()
         {
+
+            SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=commerce;Integrated Security=True");
+
+            conn.Open();
+            string transactionQuery = "SELECT * FROM userTransactionData";
+            SqlCommand transactionCommand = new SqlCommand(transactionQuery, conn);
+
+            SqlDataReader reader = transactionCommand.ExecuteReader();
+
             var model = new List<Transactions>();
 
-            var transaction1 = new Transactions();
-            transaction1.transactionID = 1234;
-            transaction1.account_number = 1;
-            transaction1.amount = 2000;
-            transaction1.processing_date = "12/12/2020";
-            transaction1.deposit_withdrawal = "DR";
-            transaction1.description = "DUMMY - Initial deposit";
-            transaction1.balance = 2000;
+            while (reader.Read())
+            {
+                var transaction = new Transactions();
+                transaction.account_number = Int32.Parse(reader[0].ToString());
+                transaction.transactionID = Int32.Parse(reader[1].ToString());
+                transaction.processing_date = reader[2].ToString();
+                transaction.balance = Int32.Parse(reader[3].ToString());
+                transaction.deposit_withdrawal = reader[4].ToString();
+                transaction.amount = Int32.Parse(reader[5].ToString());
+                transaction.description = reader[6].ToString();
+                
+                model.Add(transaction);
 
-            var transaction2 = new Transactions();
-            transaction2.transactionID = 1235;
-            transaction2.account_number = 1;
-            transaction2.amount = -500;
-            transaction2.processing_date = "12/14/2020";
-            transaction2.deposit_withdrawal = "CR";
-            transaction2.description = "DUMMY - Bill Payment";
-            transaction2.balance = 1500;
+            }
 
-            model.Add(transaction1);
-            model.Add(transaction2);
+            conn.Close();
 
             model.Sort((a, b) => b.processing_date.CompareTo(a.processing_date));
             return View(model);
