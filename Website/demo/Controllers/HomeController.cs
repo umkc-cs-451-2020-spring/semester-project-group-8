@@ -49,7 +49,7 @@ namespace demo.Controllers
             SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=commerce;Integrated Security=True");
 
             conn.Open();
-            string transactionQuery = "SELECT * FROM userTransactionData";
+            string transactionQuery = "SELECT * FROM userTransactionData ORDER BY processing_date DESC";
             SqlCommand transactionCommand = new SqlCommand(transactionQuery, conn);
 
             SqlDataReader reader = transactionCommand.ExecuteReader();
@@ -59,13 +59,13 @@ namespace demo.Controllers
             while (reader.Read())
             {
                 var transaction = new Transactions();
-                transaction.account_number = Int32.Parse(reader[0].ToString());
-                transaction.transactionID = Int32.Parse(reader[1].ToString());
-                transaction.processing_date = reader[2].ToString();
-                transaction.balance = Int32.Parse(reader[3].ToString());
-                transaction.deposit_withdrawal = reader[4].ToString();
-                transaction.amount = Int32.Parse(reader[5].ToString());
-                transaction.description = reader[6].ToString();
+                transaction.account_number = Int32.Parse(reader["account_number"].ToString());
+                transaction.transactionID = Int32.Parse(reader["transactionID"].ToString());
+                transaction.processing_date = reader["processing_date"].ToString();
+                transaction.balance = double.Parse(reader["balance"].ToString());
+                transaction.deposit_withdrawal = reader["deposit_withdrawal"].ToString();
+                transaction.amount = double.Parse(reader["amount"].ToString());
+                transaction.description = reader["description"].ToString();
                 
                 model.Add(transaction);
 
@@ -73,7 +73,6 @@ namespace demo.Controllers
 
             conn.Close();
 
-            model.Sort((a, b) => b.processing_date.CompareTo(a.processing_date));
             return View(model);
         }
 
