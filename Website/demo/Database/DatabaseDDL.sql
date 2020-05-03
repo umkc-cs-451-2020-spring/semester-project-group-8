@@ -38,7 +38,7 @@ GO
 CREATE TABLE [userTransactionData] (
   [account_number] int,
   [transactionID] int PRIMARY KEY IDENTITY(1, 1),
-  [processing_date] nvarchar(255),
+  [processing_date] date,
   [balance] float,
   [deposit_withdrawal] nvarchar(255),
   [amount] float,
