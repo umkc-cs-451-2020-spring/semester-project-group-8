@@ -1,47 +1,190 @@
 ﻿@model IEnumerable<demo.Models.Transactions>
 
-@{
-    ViewData["Title"] = "Transactions";
-}
 
-<h1>Transactions</h1>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<div class="table">
-    <table class="table">
-        @if (Model.Count() == 0)
-        {
-            <tr>
-                <td colspan="10">No records found</td>
-            </tr>
-        }
-        else
-        {
-        <thead>
-            <tr>
-                <th>Transaction ID</th>
-                <th>Amount</th>
-                <th>Processing Date</th>
-                <th>Type</th>
-                <th>Description</th>
-                <th>Resulting Balance</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var transaction in Model)
-            {
-            <tr>
-                <td>@transaction.transactionID</td>
-                <td>@transaction.amount.ToString("C")</td>
-                <td>@transaction.processing_date</td>
-                <td>@transaction.deposit_withdrawal</td>
-                <td>@transaction.description</td>
-                <td>@transaction.balance.ToString("C")</td>
-            </tr>
-            }
-        </tbody>
-        }
-    </table>
-</div>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <!--===============================================================================================-->
+
+
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <!--===============================================================================================-->
+        <title>Transactions</title>
+
+        <script>
+        $(window).on("load resize ", function () {
+            var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+            $('.tbl-header').css({ 'padding-right': scrollWidth });
+        }).resize();
+        </script>
+    </head>
+<!-- <h1>Transactions</h1> -->
+
+    <body style="background-color: #0b5637;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><b>Commerce Bank Portal</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="Dashboard">Dashboard <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Transactions">Transaction Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="alerts">Transactions Flags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="account">Account Page</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <a class="nav-link" style="color: #fff;">Hello, User!</a>
+                    <a class="btn btn-success my-2 my-sm-0" href="index">Logout</a>
+                </form>
+            </div>
+        </nav>
+
+
+        <p>
+            <div class="row justify-content-end" style="margin-top: 30px">
+                <button type="button" class="btn btn-outline-primary btn-lg" style="margin-right: 30px" data-toggle="modal" data-target="#add-transaction">Add Transaction</button>
+            </div>
+        </p>
+
+        <div class="container" style="margin-top: 39px">
+
+            <h3 style="color: #fff; margin-left:25px;">All Transactions</h3>
+            <div class="limiter">
+                <div class="container-table100">
+                    <div class="wrap-table100">
+                        <div class="table100">
+                            <table>
+                                <thead>
+                                    <tr class="table100-head">
+                                        <th class="column1">Transaction ID</th>
+                                        <th class="column2">Amount</th>
+                                        <th class="column3">Date</th>
+                                        <th class="column4">Credit/Debit</th>
+                                        <th class="column6">Description</th>
+                                        <th class="column6">Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var transaction in Model)
+                                    {
+                                        <tr>
+                                            <td>@transaction.transactionID</td>
+                                            <td>@transaction.amount.ToString("C")</td>
+                                            <td>@transaction.processing_date</td>
+                                            <td>@transaction.deposit_withdrawal</td>
+                                            <td>@transaction.description</td>
+                                            <td>@transaction.balance.ToString("C")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <div asp-action="Transactions" class="modal fade" id="add-transaction" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content form-elegant">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>New Transaction</strong></h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body mx-2">
+
+                    <!--Navigation Tabs-->
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#deposit">Deposit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#withdrawl">Withdrawal</a>
+                        </li>
+                    </ul>
+
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active show" id="deposit">
+                            <p></p>
+                            <form>
+                                <div class="form-group">
+                                    <label class="control-label">Deposit:</label>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input name="amount" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                        </div>
+                                    </div>
+                                    <label class="input-group">Transaction description:</label>
+                                    <div class="form-group">
+                                        <div class="insert-group mb-3">
+                                            <input name="description" type="text" class="form-control" aria-label="Description">
+                                        </div>
+                                    </div>
+                                        
+                                </div>
+                            </form>
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn btn-primary" onclick="window.location.href='transactions'">Add Transaction</button>
+                                <button style="background: #0B5637; color: #fff;" type="submit" class="btn" data-dismiss="modal" aria-label="Close">Cancel</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="withdrawl">
+                            <p></p>
+                            <form>
+                                <div class="form-group">
+                                    <label class="control-label">Withdrawal:</label>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input name="amount" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                        </div>
+                                    </div>
+                                    <label class="input-group">Transaction description:</label>
+                                    <div class="form-group">
+                                        <div class="insert-group mb-3">
+                                            <input name="description" type="text" class="form-control" aria-label="Description">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn btn-primary" onclick="window.location.href='transactions'">Add Transaction</button>
+                                <button style="background: #0B5637; color: #fff;" type="submit" class="btn" data-dismiss="modal" aria-label="Close">Cancel</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>

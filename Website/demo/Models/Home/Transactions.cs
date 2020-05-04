@@ -12,7 +12,7 @@ namespace demo.Models
 
         public string processing_date { get; set; }
 
-        public int balance { get; set; }
+        public double balance { get; set; }
 
         public string deposit_withdrawal { get; set; }
 
