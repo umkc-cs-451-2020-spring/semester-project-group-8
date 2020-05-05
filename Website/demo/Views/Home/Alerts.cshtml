@@ -4,176 +4,238 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Alerts & Notifications</h2>
-<p>
-    Page to set and modify various transaction alerts.
-</p>
 
-<div class="row justify-content-end" style="margin-top: 30px">
-    <button type="button" class="btn btn-outline-primary btn-lg" style="margin-right: 30px" data-toggle="modal" data-target="#alertpop">Add Alert</button>
-</div>
 
-<!-- Modal: This is the Add Alert Popup -->
-<div class="modal fade" id="alertpop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <!--Content-->
-        <div class="modal-content form-elegant">
-            <!--Header-->
-            <div class="modal-header text-center">
-                <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Alert Notification Menu</strong></h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            <!--Body-->
-            <div class="modal-body mx-4">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
 
-                <!--Navigation Tabs-->
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#deposit">Deposit</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#withdraw">Withdrawal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#category">Category</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#balance">Balance</a>
-                    </li>
-                </ul>
 
-                <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade active show" id="deposit">
-                        <p></p>
-                        <form>
-                            <div class="form-group">
-                                <label class="control-label">Send alert for deposits greater than or equal to:</label>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+    <title>Transactions</title>
+
+    <script>
+        $(window).on("load resize ", function () {
+            var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+            $('.tbl-header').css({ 'padding-right': scrollWidth });
+        }).resize();
+    </script>
+</head>
+
+<body style="background-color: #0b5637;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><b>Commerce Bank Portal</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="Dashboard">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Transactions">Transaction Page</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="alerts">Transactions Flags</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="account">Account Page</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a class="nav-link" style="color: #fff;">Hello, User!</a>
+                <a class="btn btn-success my-2 my-sm-0" href="index">Logout</a>
+            </form>
+        </div>
+    </nav>
+
+    <div class="row justify-content-end" style="margin-top: 30px">
+        <button type="button" class="btn btn-outline-primary btn-lg" style="margin-right: 30px" data-toggle="modal" data-target="#alertpop">Add Alert</button>
+    </div>
+
+
+    <!-- Modal: This is the Add Alert Popup -->
+    <div class="modal fade" id="alertpop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content form-elegant">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Alert Notification Menu</strong></h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body mx-4">
+
+                    <!--Navigation Tabs-->
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#deposit">Deposit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#withdraw">Withdrawal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#category">Category</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#balance">Balance</a>
+                        </li>
+                    </ul>
+
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active show" id="deposit">
+                            <p></p>
+                            <form>
                                 <div class="form-group">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">$</span>
+                                    <label class="control-label">Send alert for deposits greater than or equal to:</label>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                                         </div>
-                                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                                     </div>
                                 </div>
+                            </form>
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn btn-primary" onclick="window.location.href='guest.html'">Add Alert</button>
+                                <button style="background: #0B5637; color: #fff;" type="submit" class="btn" data-dismiss="modal" aria-label="Close">Cancel</button>
                             </div>
-                        </form>
-                        <div class="text-center mb-3">
-                            <button type="submit" class="btn btn-primary" onclick="window.location.href='guest.html'">Add Alert</button>
-                            <button style="background: #0B5637; color: #fff;" type="submit" class="btn" data-dismiss="modal" aria-label="Close">Cancel</button>
                         </div>
-                    </div>
 
-                    <div class="tab-pane fade" id="withdraw">
-                        <p></p>
-                        <form>
-                            <div class="form-group">
-                                <label class="control-label">Send alert for withdrawals greater than or equal to:</label>
+                        <div class="tab-pane fade" id="withdraw">
+                            <p></p>
+                            <form>
                                 <div class="form-group">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">$</span>
+                                    <label class="control-label">Send alert for withdrawals greater than or equal to:</label>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                                         </div>
-                                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                                     </div>
                                 </div>
+                            </form>
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn btn-primary" onclick="window.location.href='guest.html'">Add Alert</button>
+                                <button style="background: #0B5637; color: #fff;" type="submit" class="btn" data-dismiss="modal" aria-label="Close">Cancel</button>
                             </div>
-                        </form>
-                        <div class="text-center mb-3">
-                            <button type="submit" class="btn btn-primary" onclick="window.location.href='guest.html'">Add Alert</button>
-                            <button style="background: #0B5637; color: #fff;" type="submit" class="btn" data-dismiss="modal" aria-label="Close">Cancel</button>
                         </div>
-                    </div>
 
-                    <div class="tab-pane fade" id="category">
-                        <p></p>
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Send alert for transactions that match the description:</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Starbucks, Hyvee, etc.">
-                            </div>
-                        </form>
-                        <div class="text-center mb-3">
-                            <button type="submit" class="btn btn-primary" onclick="window.location.href='guest.html'">Add Alert</button>
-                            <button style="background: #0B5637; color: #fff;" type="submit" class="btn" data-dismiss="modal" aria-label="Close">Cancel</button>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="balance">
-                        <p></p>
-                        <form>
-                            <div class="form-group">
-                                <label class="control-label">Send alert when account balance drops below:</label>
+                        <div class="tab-pane fade" id="category">
+                            <p></p>
+                            <form>
                                 <div class="form-group">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">$</span>
+                                    <label for="exampleInputEmail1">Send alert for transactions that match the description:</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Starbucks, Hyvee, etc.">
+                                </div>
+                            </form>
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn btn-primary" onclick="window.location.href='guest.html'">Add Alert</button>
+                                <button style="background: #0B5637; color: #fff;" type="submit" class="btn" data-dismiss="modal" aria-label="Close">Cancel</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="balance">
+                            <p></p>
+                            <form>
+                                <div class="form-group">
+                                    <label class="control-label">Send alert when account balance drops below:</label>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                                         </div>
-                                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
 
-                        <div class="text-center mb-3">
-                            <button type="submit" class="btn btn-primary" onclick="window.location.href='guest.html'">Add Alert</button>
-                            <button style="background: #0B5637; color: #fff;" type="submit" class="btn" data-dismiss="modal" aria-label="Close">Cancel</button>
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn btn-primary" onclick="window.location.href='guest.html'">Add Alert</button>
+                                <button style="background: #0B5637; color: #fff;" type="submit" class="btn" data-dismiss="modal" aria-label="Close">Cancel</button>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
 
             </div>
-
         </div>
     </div>
-</div>
 
 
+    <div class="container" style="margin-top: 39px">
+        <h3 style="color: #fff; margin-left:25px;">Alerts & Notifications</h3>
+        <div class="limiter">
+            <div class="container-table100">
+                <div class="wrap-table100">
+                    <div class="table100">
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Alert Type</th>
-            <th scope="col">Alert Description</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="table100-head">
+                                    <th scope="col">Alert Type</th>
+                                    <th scope="col">Alert Description</th>
+                                    <th scope="col">Criteria</th>
+                                    <th scope="col">Edit/Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-        <tr>
-            <td>Deposit</td>
-            <td scope="row">Send alert for deposits greater than or equal to:</td>
-            <td>$100.00</td>
-            <td>Edit Delete</td>
-        </tr>
+                                <tr>
+                                    <td>Deposit</td>
+                                    <td scope="row">Send alert for deposits greater than or equal to:</td>
+                                    <td>$100.00</td>
+                                    <td>Edit Delete</td>
+                                </tr>
 
-        <tr>
-            <td>Withdrawal</td>
-            <td scope="row">Send alert for withdrawals greater than or equal to:</td>
-            <td>$100.00</td>
-            <td>Edit Delete</td>
-        </tr>
+                                <tr>
+                                    <td>Withdrawal</td>
+                                    <td scope="row">Send alert for withdrawals greater than or equal to:</td>
+                                    <td>$100.00</td>
+                                    <td>Edit Delete</td>
+                                </tr>
 
-        <tr>
-            <td>Category</td>
-            <td scope="row">Send alert for transactions that match the description:</td>
-            <td>Price Chopper</td>
-            <td>Edit Delete</td>
-        </tr>
+                                <tr>
+                                    <td>Category</td>
+                                    <td scope="row">Send alert for transactions that match the description:</td>
+                                    <td>Price Chopper</td>
+                                    <td>Edit Delete</td>
+                                </tr>
 
-        <tr>
-            <td>Deposit</td>
-            <td scope="row">Send alert when account balance drops below:</td>
-            <td>$100.00</td>
-            <td>Edit Delete</td>
-        </tr>
+                                <tr>
+                                    <td>Balance</td>
+                                    <td scope="row">Send alert when account balance drops below:</td>
+                                    <td>$100.00</td>
+                                    <td>Edit Delete</td>
+                                </tr>
 
-    </tbody>
-</table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+</body>
